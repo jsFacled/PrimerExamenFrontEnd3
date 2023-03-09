@@ -5,6 +5,7 @@ function Form() {
   const [name, setName] = useState("");
   const [mascota, setMascota] = useState("");
   const [mostrarCard, setMostrarCard] = useState(false);
+  const [mostrarError, setmostrarError] = useState(false)
 
   function handleOnChange(e) {
     if (e.target.name === "name") {
@@ -21,8 +22,10 @@ function Form() {
       name.trim()[0] === " " ||
       mascota.length < 6
     ) {
-      alert("Por favor chequea que la información sea correcta");
+        setmostrarError(true)
+      
     } else {
+        setmostrarError(false)
       setMostrarCard(true)
     }
   }
@@ -53,6 +56,7 @@ function Form() {
 
         <button type="submit">Enviar</button>
       </form>
+      {mostrarError && <p style={{ color:"red" }}>Por favor corrobora que todos los datos estén completos</p>}
       {mostrarCard && <Card name={name} mascota={mascota} />}
     </>
   );
