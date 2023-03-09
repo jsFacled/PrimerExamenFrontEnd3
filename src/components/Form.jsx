@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import Card from "./Card";
 
 function Form() {
   const [name, setName] = useState("");
   const [mascota, setMascota] = useState("");
+  const [mostrarCard, setMostrarCard] = useState(false);
 
   function handleOnChange(e) {
     if (e.target.name === "name") {
-      setInput1(e.target.value);
+      setName(e.target.value);
     } else if (e.target.name === "mascota") {
-      setInput2(e.target.value);
+      setMascota(e.target.value);
     }
   }
 
@@ -21,7 +23,7 @@ function Form() {
     ) {
       alert("Por favor chequea que la información sea correcta");
     } else {
-      // Renderizar
+      setMostrarCard(true)
     }
   }
 
@@ -51,6 +53,7 @@ function Form() {
 
         <button type="submit">Enviar</button>
       </form>
+      {mostrarCard && <Card name={name} mascota={mascota} />}
     </>
   );
 }

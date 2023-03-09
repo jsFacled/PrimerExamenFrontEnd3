@@ -1,9 +1,12 @@
 import React from 'react'
 
-function Card() {
+function Card({name, mascota}) {
   return (
-    <div>Card</div>
+    <div>
+        <p>Tu nombre es:  {name}</p>
+      <p>Tu mascota elegida es:  {mascota}</p>
+    </div>
   )
 }
 
-export default Card
+export default Card;

@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <h1>Elije una mascota</h1>
       <Form/>
-      <Card/>
+      
 
       
       
